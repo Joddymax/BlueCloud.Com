@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles for the settings panel */
+    .settings-panel {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+    }
+
+    /* CSS styles for the settings button */
+    .settings-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f1f1f1;
+      color: #333;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* CSS styles for the settings icon */
+    .settings-icon {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <button class="settings-button" onclick="toggleSettingsPanel()"><span class="settings-icon">⚙</span></button>
+  <div id="settingsPanel" class="settings-panel">
+    <h3>GENERATE THE FUTURE WITH THE PAST.
+    <br>
+    <br>
+Welcome to BlueCloud, the premier provider of cloud computing storage solutions. In today's rapidly evolving digital landscape, businesses and individuals are generating vast amounts of data that require secure and scalable storage options. That's where BlueCloud comes in, offering a comprehensive suite of services designed to meet your cloud storage needs.
+<br>
+<br>
+At BlueCloud, we understand that data is the lifeblood of modern enterprises. Whether you're a small startup or a multinational corporation, our cutting-edge cloud storage solutions enable you to store, access, and manage your valuable data with ease. Our robust infrastructure ensures that your information remains safe, reliable, and available whenever you need it.
+
+
+    </h3>
+    <!-- Add your settings options here -->
+    <button onclick="closeSettingsPanel()">Close</button>
+  </div>
+
+  <script>
+    function toggleSettingsPanel() {
+      var settingsPanel = document.getElementById("settingsPanel");
+      if (settingsPanel.style.display === "block") {
+        settingsPanel.style.display = "none";
+      } else {
+        settingsPanel.style.display = "block";
+      }
+    }
+
+    function closeSettingsPanel() {
+      var settingsPanel = document.getElementById("settingsPanel");
+      settingsPanel.style.display = "none";
+    }
+  </script>
+
+
+
+
+<br>
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blue 3D Cloud</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Cloud CSS styles */
+    .cloud {
+      width: 300px;
+      height: 200px;
+      position: relative;
+      transform: rotate(-20deg);
+    }
+
+    .cloud::before,
+    .cloud::after,
+    .cloud .circle {
+      content: "";
+      position: absolute;
+      background-color: #90cdfd;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .cloud::before,
+    .cloud::after {
+      width: 120px;
+      height: 120px;
+    }
+
+    .cloud::before {
+      top: -10px;
+      left: 20px;
+      z-index: 1;
+    }
+
+    .cloud::after {
+      top: 10px;
+      right: 20px;
+      z-index: 1;
+    }
+
+    .cloud .circle {
+      width: 80px;
+      height: 80px;
+    }
+
+    .circle-1 {
+      top: 50px;
+      left: 40px;
+      z-index: 2;
+    }
+
+    .circle-2 {
+      top: 10px;
+      left: 90px;
+      z-index: 2;
+    }
+
+    .circle-3 {
+      top: 70px;
+      left: 90px;
+      z-index: 2;
+    }
+
+    .circle-4 {
+      top: 40px;
+      left: 140px;
+      z-index: 2;
+    }
+
+    .circle-5 {
+      top: 80px;
+      left: 140px;
+      z-index: 2;
+    }
+
+    .circle-6 {
+      top: 50px;
+      left: 190px;
+      z-index: 2;
+    }
+
+    /* Logo text CSS styles */
+    .logo-text {
+      font-size: 50px;
+      color: white;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    /* CSS styles for buttons and sidebar menu */
+    .button {
+      background-color:black;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: red;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+    .openbtn:hover {
+      background-color: grey;
+    }
+
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+
+    /* File upload section styles */
+    .upload-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .upload-section h2 {
+      font-size: 20px;
+    }
+
+    .upload-section .button {
+      margin-top: 20px;
+    }
+
+    .file-item {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .file-item img,
+    .file-item audio,
+    .file-item video {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar menu -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    
+    
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Dropping Water Drops</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .cloud-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            color: #4ABDFB; /* Blue color */
+        }
+
+        .raindrop {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background-color: #4ABDFB; /* Blue color */
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: raindropAnimation 1s linear infinite;
+        }
+
+        @keyframes raindropAnimation {
+            0% { transform: translate(-50%, -50%) scaleY(0); opacity: 0; }
+            40% { opacity: 1; }
+            100% { transform: translate(-50%, 300px) scaleY(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cloud-icon">
+        ☁️
+        <div class="raindrop"></div>
+    </div>
+
+    <script>
+        // JavaScript code to create the cloud dropping water drops animation
+        window.addEventListener("DOMContentLoaded", function() {
+            var cloudIcon = document.querySelector(".cloud-icon");
+
+            function createRaindrop() {
+                var raindrop = document.createElement("div");
+                raindrop.classList.add("raindrop");
+                cloudIcon.appendChild(raindrop);
+
+                setTimeout(function() {
+                    raindrop.remove();
+                }, 1000);
+            }
+
+            setInterval(createRaindrop, 300); // Create a new raindrop every 300 milliseconds
+        });
+    </script>
+</body>
+
+<br>
+<br>
+<br>
+<br>
+
+    
+    
+  
+<head>
+  <title>User Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .profile-header {
+      text-align: center;
+    }
+
+    .profile-header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    .profile-header h2 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    .profile-info {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+
+    .profile-info h3 {
+      margin-top: 0;
+    }
+
+    .profile-info textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    .profile-info input[type="file"] {
+      margin-top: 10px;
+    }
+
+    .profile-info button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .profile-info button:hover {
+      background-color: #23527c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile-header">
+      <img id="profile-picture" src="default-profile-picture.jpg" alt="Profile Picture">
+      <h2 id="profile-name"></h2>
+    </div>
+
+    <div class="profile-info">
+      <h3>About Me</h3>
+      <textarea id="biography" placeholder="Write a short biography about yourself"></textarea>
+
+      <input type="file" id="profile-picture-input" accept="image/*">
+      <button id="save-button">Save Biography</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code
+
+    // Function to handle profile picture upload
+    function handleProfilePictureUpload(event) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        document.getElementById('profile-picture').src = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    // Update the saveBiography function to save the biography
+    function saveBiography() {
+      var biography = document.getElementById('biography').value;
+
+      // Save the biography
+      // ...
+
+      alert('Biography saved successfully!');
+    }
+
+    // Attach the saveBiography function to the "Save Biography" button
+    document.getElementById('save-button').addEventListener('click', saveBiography);
+
+    // Add event listener to trigger file input on profile picture selection
+    document.getElementById('profile-picture-input').addEventListener('change', function(event) {
+      handleProfilePictureUpload(event);
+    });
+  </script>
+
+
+
+    
+    
+    
+<head>
+  <title>Chat App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #chatbox {
+      height: 400px;
+      width: 400px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    #chatbox p {
+      margin: 5px 0;
+    }
+
+    #input-box {
+      margin-top: 10px;
+      display: flex;
+    }
+
+    #message {
+      flex-grow: 1;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    #send-button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>COMMENT SECTION</h1>
+  <div id="chatbox"></div>
+  <div id="input-box">
+    <input type="text" id="message" placeholder="Type your message" />
+    <button id="send-button" onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const messageInput = document.getElementById('message');
+      const message = messageInput.value;
+
+      if (message.trim() !== '') {
+        displayMessage('You', message);
+        messageInput.value = '';
+      }
+    }
+
+    function displayMessage(sender, message) {
+      const chatbox = document.getElementById('chatbox');
+      const messageElement = document.createElement('p');
+      messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+      chatbox.appendChild(messageElement);
+    }
+  </script>
+</body>
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    <a href="#">EMAIL US</a>
+    <a href="#">CONTACT US</a>
+    <br>
+    <br>
+<br>
+<br>
+<br>
+ 
+  </div>
+<!-- Main content -->
+  <div id="main">
+    <!-- Cloud logo -->
+    <div class="cloud">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+      <div class="circle circle-4"></div>
+      <div class="circle circle-5"></div>
+      <div class="circle circle-6"></div>
+    </div>
+
+    <!-- Logo text -->
+    <div class="logo-text">
+        
+      <img src="Blue6.jpg" alt="BlueCloud Logo" width="45" height="40"> BlueCloud°
+    </div>
+    <br>
+
+    <!-- Open sidebar button -->
+    <button class="openbtn" onclick="toggleNav()">☰ Open Sidebar</button>
+
+
+  <script>
+    var files = [];
+
+    function toggleNav() {
+      var sidebar = document.getElementById("mySidebar");
+      var main = document.getElementById("main");
+      if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0";
+        main.style.marginLeft = "0";
+      } else {
+        sidebar.style.width = "250px";
+        main.style.marginLeft = "250px";
+      }
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+
+    function showUploadedFile(file, fileUrl) {
+      var fileItem = document.createElement("div");
+      fileItem.className = "file-item";
+
+      if (file.type.includes("image")) {
+        var img = document.createElement("img");
+        img.src = fileUrl;
+        fileItem.appendChild(img);
+      } else if (file.type.includes("audio")) {
+        var audio = document.createElement("audio");
+        audio.controls = true;
+        audio.src = fileUrl;
+        fileItem.appendChild(audio);
+      } else if (file.type.includes("video")) {
+        var video = document.createElement("video");
+        video.controls = true;
+        video.src = fileUrl;
+        fileItem.appendChild(video);
+      }
+
+      document.getElementById("uploadedFiles").appendChild(fileItem);
+    }
+
+    function searchFiles() {
+      var searchTerm = prompt("Enter search term:");
+      var searchResults = files.filter(function(file) {
+        return file.name.toLowerCase().includes(searchTerm.toLowerCase());
+      });
+
+      document.getElementById("uploadedFiles").innerHTML = "";
+
+      searchResults.forEach(function(file) {
+        var fileUrl = URL.createObjectURL(file);
+        showUploadedFile(file, fileUrl);
+      });
+    }
+
+    document.getElementById("imageInput").addEventListener("change", function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        showUploadedFile(file, event.target.result);
+        files.push(file);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById("musicInput").addEventListener("change", function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        showUploadedFile(file, event.target.result);
+        files.push(file);
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById("videoInput").addEventListener("change", function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        showUploadedFile(file, event.target.result);
+        files.push(file);
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+ <head>
+  <style>
+    body {
+      background-color:orange;
+    }
+  
+
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles for the file upload section */
+    .upload-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .upload-section h2 {
+      font-size: 20px;
+    }
+
+    .upload-section .button {
+      margin-top: 20px;
+    }
+
+    .file-item {
+      display: inline-block;
+      margin: 10px;
+      position: relative;
+    }
+
+    .file-item img,
+    .file-item audio,
+    .file-item video {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .delete-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    
+    
+    
+    
+    
+    
+    
+    
+     
+ 
+<head>
+  <title>Search Engine Optimaization</title>
+  <style>
+    /* CSS styles for the Sio */
+    .toggle-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .toggle-button:hover {
+      background-color: red;
+    }
+
+    .sio-container {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .upload-section {
+      margin-top: 20px;
+    }
+
+    .upload-section label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .search-button {
+      display: block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search-button:hover {
+      background-color: red;
+    }
+
+    .file-list {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .file-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .file-list li img,
+    .file-list li video,
+    .file-list li audio {
+      margin-right: 10px;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .file-list li button {
+      margin-left: auto;
+      padding: 6px 10px;
+      background-color: #f44336;
+      color: white;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .file-list li button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-button">Toggle Sio</div>
+
+  <div class="sio-container">
+    <h1>Search Engine Optimization</h1>
+    <div class="upload-section">
+      <h2>File Upload</h2>
+      <label for="file-input">Choose a file:</label>
+      <input type="file" id="file-input">
+    </div>
+    <input type="text" class="search-input" placeholder="Search for a file">
+    <button class="search-button">Search</button>
+    <ul class="file-list"></ul>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleButton = document.querySelector('.toggle-button');
+      var sioContainer = document.querySelector('.sio-container');
+      var fileInput = document.querySelector('#file-input');
+      var searchInput = document.querySelector('.search-input');
+      var searchButton = document.querySelector('.search-button');
+      var fileList = document.querySelector('.file-list');
+      var files = [];
+
+      // Function to toggle the visibility of the Sio container
+      toggleButton.addEventListener('click', function() {
+        sioContainer.style.display = sioContainer.style.display === 'none' ? 'block' : 'none';
+      });
+
+      // Function to handle file upload
+      fileInput.addEventListener('change', function(event) {
+        var uploadedFiles = Array.from(event.target.files);
+
+        // Store uploaded files in the 'files' array
+        uploadedFiles.forEach(function(file) {
+          files.push(file);
+        });
+
+        // Update the file list display
+        updateFileList();
+      });
+
+      // Function to handle search button click
+      searchButton.addEventListener('click', function() {
+        var query = searchInput.value.toLowerCase(); // Get the search query
+        var filteredFiles = files.filter(function(file) {
+          return file.name.toLowerCase().includes(query);
+        });
+
+        // Update the file list display with matching results
+        updateFileList(filteredFiles);
+      });
+
+      // Function to update the file list display
+      function updateFileList(filteredFiles) {
+        fileList.innerHTML = '';
+
+        var displayFiles = filteredFiles || files;
+
+        if (displayFiles.length === 0) {
+          fileList.innerHTML = '<li>No files found.</li>';
+        } else {
+          displayFiles.forEach(function(file) {
+            var listItem = document.createElement('li');
+
+            // Create the media element based on the file type
+            var mediaElement;
+            if (file.type.includes('image')) {
+              mediaElement = document.createElement('img');
+            } else if (file.type.includes('video')) {
+              mediaElement = document.createElement('video');
+              mediaElement.setAttribute('controls', 'true');
+            } else if (file.type.includes('audio')) {
+              mediaElement = document.createElement('audio');
+              mediaElement.setAttribute('controls', 'true');
+            } else {
+              return; // Skip unsupported file types
+            }
+
+            // Set the source of the media element to the file URL
+            mediaElement.src = URL.createObjectURL(file);
+
+            // Set the width and height of the media element
+            mediaElement.style.width = '200px';
+            mediaElement.style.height = '200px';
+
+            // Create the delete button
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', function() {
+              deleteFile(file);
+            });
+
+            // Append the media element and delete button to the list item
+            listItem.appendChild(mediaElement);
+            listItem.appendChild(deleteButton);
+
+            // Append the list item to the file list
+            fileList.appendChild(listItem);
+          });
+        }
+      }
+
+      // Function to delete a file
+      function deleteFile(file) {
+        var fileIndex = files.indexOf(file);
+        if (fileIndex > -1) {
+          files.splice(fileIndex, 1);
+          updateFileList();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
